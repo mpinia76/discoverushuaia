@@ -1,0 +1,48 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV='expires' CONTENT='0'>
+<META HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+<SCRIPT>
+	function respuestaTardia() {
+		if (document.estado.terminoTodo.value=='false') {
+			document.write (" \
+<html> \
+<head> \
+<title> \
+demorado</title> \
+</head> \
+<body> \
+Procesando \
+<p>PROCESANDO LOS DATOS DE SU TARJETA</p> \
+La operación no terminó de procesarse aún. Intente en unos minutos... \
+<br> \
+<A HREF='/sps-ar/Resultado'>Ver resultado</A> \
+</body> \
+</html> \
+				");
+		} else {			
+		respuestaActual();		
+		}
+	}
+</SCRIPT>	
+<title>En Proceso</title>
+</HEAD>
+<BODY  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onload="respuestaTardia();">
+<FORM name="estado">
+<input type="hidden" name="terminoTodo" value="false">
+</FORM>
+<br><br>
+<div id="enproceso" align="center">
+<table bgcolor="eff0f1" border="1" cellpadding="0" cellspacing="10" bordercolor="000099" rules="groups" width="652" style="border-collapse: collapse">
+<tr><td align="center"><font color="000099" size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>PROCESANDO LOS DATOS DE SU TARJETA</strong></font></p></td></tr>
+<tr><td align="center"><font color="000099" size="2" face="Verdana, Arial, Helvetica, sans-serif">Aguarde un momento por favor...<br>
+</font></td></tr>
+</table>
+</div> 
+</BODY>
+</HTML>
+<Script>document.estado.terminoTodo.value='true';</Script>
+<Script>
+function respuestaActual(){ 
+		document.write (" <html> <head> <title>Discover Rent a Car Ushuaia - Posnet On Line</title> <style type='text/css'> img{ border:none; } #top { margin:0 auto 0 auto; width:782px; height:100px; background:url('/sps_ar/discoverushuaia/top_posnet.jpg') no-repeat; } .salir{ float:right; margin:0 30px; padding-top:20px; } .titulo{ float:left; } #content{ margin:0 auto 0 auto; width:782px; background:url('/sps_ar/discoverushuaia/bg_content.jpg') repeat-y; } #info{ padding:10px; } #end{ background:url('/sps_ar/discoverushuaia/content_end.png') no-repeat; height:10px; margin:0 auto 0 auto; width:782px; } .texto{ font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#333333; font-weight:bold; } .textochico{ font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#333333; } </style> </head>  <body bgcolor='#CCCCCC'> <div style='text-align:center;'> <div id='top'></div> 	<div id='content'> 		<div id='info'> <p align='center'><font class=texto style='color:#FF0000; font-size:14px;'><strong>Su operaci&oacute;n fue realizada con &eacute;xito!</strong></font><BR><BR> <font class='texto'>Para su control usted recibir&aacute; en instantes un e-mail con los datos de su compra:</font></p> <table cellpadding='0' cellspacing='10'> <tr><td width='180'><font class=texto><strong>Nombre: </strong></font></td><td width='466'><font class=texto>"+<!--NombreComprador-->+"</font></td></tr> <tr><td width='180'><font class=texto><strong>E-Mail: </strong></td><td width='466'><font class=texto>"+<!--EMailComprador-->+"</font></td></tr> <tr><td width='180'><font class=texto><strong>Fecha/Hora: </strong></td><td width='466'><font class=texto>"+<!--FechaHora-->+"</font></td></tr> <tr><td width='180'><font class=texto><strong>C&oacute;digo de Operaci&oacute;n: </strong></font></td><td width='466'><font class=texto>"+<!--Codigooperacionsite-->+"</font></td></tr> <tr>   <td width='180'><font class=texto><strong>C&oacute;digo de Autorizaci&oacute;n: </strong> </font></td>   <td width='466'><font class=texto>"+<!--CodAutorizacion-->+"</font></td></tr> </table> 	<p align='center'><font class='texto'>Su pago fue exitoso y los datos ya fueron enviados a nuestro sistema. Gracias por haber elegido Discover Ushuaia rent a car.</font></p> 	<p align='center'><font class='texto'>Ante cualquier duda com&uacute;niquese con nosotros</font></p> 	<p align='center'><font class='texto'><a href='http://www.discoverushuaia.com.ar'>Volver al sitio</a></font></p> 	</div> </div> <div id='end'></div> </div> <p align='center'><a TARGET='_blank' href='https://sps.decidir.com/sps_ar/sps_compra.html'><IMG src='/img/botonsps.gif' border='0'></a></p> </body> </html> ");}
+		</script>

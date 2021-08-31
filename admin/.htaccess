@@ -1,0 +1,45 @@
+	Options +FollowSymLinks
+	RewriteEngine on
+
+
+
+	Rewriterule ^categorias/edit-(.*).html$ general.php?page=categorias-edit&id=$1
+	Rewriterule ^categorias/detalles-(.*).html$ general.php?page=categorias-detalles&id=$1
+	Rewriterule ^categorias/(.*).html$ general.php?page=categorias-$1
+	
+	
+	Rewriterule ^atractivos/edit-(.*).html$ general.php?page=atractivos-edit&id=$1
+	Rewriterule ^atractivos/(.*).html$ general.php?page=atractivos-$1
+
+	Rewriterule ^beneficios/edit-(.*).html$ general.php?page=beneficios-edit&id=$1
+	Rewriterule ^beneficios/(.*).html$ general.php?page=beneficios-$1
+
+	Rewriterule ^locales/edit-(.*).html$ general.php?page=locales-edit&id=$1
+	Rewriterule ^locales/(.*).html$ general.php?page=locales-$1
+
+	Rewriterule ^videos/(.*).html$ general.php?page=videos-$1
+
+	Rewriterule ^sliderhome/edit-(.*).html$ general.php?page=sliderhome-edit&id=$1
+	Rewriterule ^sliderhome/(.*).html$ general.php?page=sliderhome-$1
+	
+		Rewriterule ^sliderhome2/edit-(.*).html$ general.php?page=sliderhome2-edit&id=$1
+	Rewriterule ^sliderhome2/(.*).html$ general.php?page=sliderhome2-$1
+
+	Rewriterule ^faq/edit-(.*).html$ general.php?page=faq-edit&id=$1
+	Rewriterule ^faq/(.*).html$ general.php?page=faq-$1
+	
+	Rewriterule ^bloques/edit-(.*).html$ general.php?page=bloques-edit&id=$1
+	Rewriterule ^bloques/(.*).html$ general.php?page=bloques-$1
+	
+	Rewriterule ^banderas/edit-(.*).html$ general.php?page=banderas-edit&id=$1
+	Rewriterule ^banderas/(.*).html$ general.php?page=banderas-$1
+
+	Rewriterule ^tarjetas/edit-(.*).html$ general.php?page=tarjetas-edit&id=$1
+	Rewriterule ^tarjetas/(.*).html$ general.php?page=tarjetas-$1
+
+	Rewriterule ^encuestas/(.*).html$ general.php?page=encuestas-$1
+	
+	Rewriterule ^whatsapp/edit-(.*).html$ general.php?page=whatsapp-edit&id=$1
+	
+
+Rewriterule ^user-nuevo.html$ general.php?page=user-nueva

@@ -1,0 +1,119 @@
+<html>
+<head>
+<title>Discover Rent a Car Ushuaia - Datos de la Tarjeta de Cr&eacute;dito</title>
+<style type="text/css">
+img{
+border:none;
+}
+#top {
+margin:0 auto 0 auto;
+width:782px;
+height:100px;
+background:url("/sps_ar/discoverushuaia/top_posnet.jpg") no-repeat;
+}
+.salir{
+float:right;
+margin:0 30px;
+padding-top:20px;
+}
+.titulo{
+float:left;
+}
+#content{
+margin:0 auto 0 auto;
+width:782px;
+background:url("/sps_ar/discoverushuaia/bg_content.jpg") repeat-y;
+}
+#info{
+padding:10px;
+}
+#end{
+background:url("/sps_ar/discoverushuaia/content_end.png") no-repeat;
+height:10px;
+margin:0 auto 0 auto;
+width:782px;
+}
+.texto{
+font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+color:#333333;
+font-weight:bold;
+}
+.textochico{
+font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+color:#333333;
+}
+</style>
+<SCRIPT LANGUAGE="JavaScript" src="/sps_ar/submit_nativa.js"></SCRIPT>
+</head>
+<body bgcolor="#CCCCCC">
+<div style="text-align:center;"> 
+<div id="top"></div>
+	<div id="content">
+		<div id="info">
+<p><b><font class=texto>Por favor, ingrese los siguientes datos de su tarjeta NATIVA y haga su pago:</font></b> </p>
+<form METHOD="POST" ACTION="<!--UrlAPostear-->" id="DatosTarjetaForm" name="DatosTarjetaForm" onsubmit="return beforesubmit();">
+    <table bgcolor="eff0f1" border="1" cellpadding="0" cellspacing="10" bordercolor="000099" rules="groups" width="652" style="border-collapse: collapse">
+	<input type="hidden" name="MTARJETA" value="27">
+	<input type="hidden" name="NOMBRE" value="default">
+	<input type="hidden" name="APELLIDO" value="default">
+	<input type="hidden" name="TELEFONO" value="000">
+      <colgroup>
+        <col align="right"><col align="left">
+</colgroup>
+<tr>
+        <td width="180"><b><font class="texto">Titular de la Tarjeta: </font></b></td>
+        <td width="466"><font class="texto"><input name="NOMBREENTARJETA" size="30"></font>
+		<font class="textochico"><nobr>(como aparece en la tarjeta)</nobr></font></td>
+      </tr>
+      <tr>
+        <td width="180"><b><font class="texto">N&uacute;mero de Tarjeta:&nbsp; </font></b></td>
+        <td width="466"><font class="texto"><input maxLength="19" name="NROTARJETA" size="16" autocomplete="off"></font>
+		<nobr><font class="textochico">(sin espacios, ni guiones)</FONT></nobr></td>
+      </tr>
+      <tr>
+        <td width="180"><b><font class="texto">Fecha de Vencimiento: </font></b></td>
+		<td width="466"><font class="texto"><input maxlength="4" name="VENCTARJETA" size="4" autocomplete="off"></font>
+		<input type="hidden" name="VENCIMIENTO" size="4"><nobr><font class="textochico">(en formato <b>MMAA</b>)</FONT></nobr></td>
+      </tr>
+      <tr>
+        <td width="180"><b><font class="texto">C&oacute;digo de Seguridad: </font></b></td>
+        <td width="466"><font class="texto"><input type="password" maxLength="4" name="CODSEGURIDAD" size="4" autocomplete="off"> </font></td>
+      </tr>
+      <tr>
+        <td width="180"><b><font class="texto">E-Mail: </font></b></td>
+        <td width="466"><font class="texto"><input maxLength="50" name="EMAILCLIENTE" size="50"></font></td>
+      </tr>
+	  <tr>
+        <td width="180"><b><font class="texto">Tipo de Documento: </font></b></td>
+        <td width="466"><SELECT name="TIPODOC"><OPTION value="1" selected>DNI</OPTION><OPTION value="2">CI</OPTION><OPTION value="3">LE</OPTION><OPTION value="4">LC</OPTION></SELECT></td>
+      </tr>
+	        <tr>
+        <td width="180"><b><font class="texto">N&uacute;mero de Documento: </font></b></td>
+        <td width="466"><font class="texto"><input maxLength="20" name="NRODOC" size="20"></font></td>
+      </tr>
+	        <tr>
+        <td width="180"><b><font class="texto">Calle: </font></b></td>
+        <td width="466"><font class="textochico"><input maxLength="20" name="CALLE" size="20">
+          (domicilio de entrega de resumen de tarjeta)</font></td>
+      </tr>
+		        <tr>
+        <td width="180"><b><font class="texto">N&uacute;mero de Puerta: </font></b></td>
+        <td width="466"><font class="textochico"><input maxLength="20" name="NROPUERTA" size="20">
+          (domicilio de entrega de resumen de tarjeta)</font></td>
+      </tr>
+	 		        <tr>
+        <td width="180"><b><font class="texto">Fecha de Nacimiento: </font></b></td>
+        <td width="466"><font class="texto"><input maxLength="20" name="FECHANACIMIENTO" size="20"><font class="textochico">(En formato <b>DDMMAAAA</b>)</font></td>
+      </tr>
+	 </table>
+</form>
+	</div>
+</div>
+<div id="end"></div>
+</div>
+<p align="center"><a TARGET="_blank" onClick="window.open('https://sps.decidir.com/sps_ar/sps_compra.html','spscompra','width=600, height=600')">
+<IMG src="/img/botonsps.gif" border="1"></a></p>
+</body>
+</html>

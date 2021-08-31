@@ -1,0 +1,93 @@
+/*HOME*/
+
+.link_footer_menu {
+	display: none!important;
+}
+
+
+@media screen and (min-width: 993px) {
+
+	#Home-slider2 {
+		width: 100%!important;
+	}
+
+	#Home-slider2 .carousel-inner .da-slider img {
+		width: 100%!important;
+	}
+
+	.caja_sobre_nosotros {
+		padding: 0!important;
+		margin-top: 15px!important;
+	}
+
+}
+
+@media screen and (min-width: 1800px) {
+	#Home-slider2 .carousel-inner {
+		height: 1000px!important;
+	}
+}
+
+@media screen  and (min-width: 993px) and (max-width: 1799px) {
+
+	#Home-slider2 .carousel-inner {
+		height: 650px!important;
+	}
+	
+}
+
+@media screen and (max-width: 992px) {
+	.link_footer_menu {
+		display: inline-block!important;
+	}
+	.caja_sobre_nosotros {
+		margin-top: 30px!important;
+	}
+	.footer {
+		display: none;
+		/*y los datos del footer los ponemos dentro del menu*/
+	}
+	/*categorias*/
+	#categorias {
+		margin-bottom: 70px!important;
+	}
+	/*beneficios*/
+	#beneficios {
+		margin-bottom: 70px!important;
+	}
+
+}
+
+
+@media screen and (max-width: 720px) {
+	
+	.titular_h2 {
+		font-size: 25px!important;
+		text-align: center!important;
+	}
+	.parrafo_p {
+		text-align: center!important;
+	}
+
+	/*por que alquilar un auto*/
+	#bloques .item-bloque {
+		max-width: 100%!important;
+	}
+	/*contactos*/
+	.container-contacto {
+		width: 100%!important;
+	}
+	.contact-form #nombre,
+	.contact-form #telefono,
+	.contact-form #email,
+	.contact-form #retiro,
+	.contact-form #HoraRetiro,
+	.contact-form #devolucion,
+	.contact-form #HoraDevolucion {
+		width: 100%!important;
+
+	}
+}
+
+
+

@@ -1,0 +1,117 @@
+/*btn slider*/
+.content-page {
+    padding-bottom: 0!important;
+}
+.footer {
+    margin-left: -15px!important;
+    margin-right: -15px!important;
+}
+
+.da-slider-fb .da-slide .da-link {
+	border: 0!important;
+    border-radius: 0!important;
+    background: #4D86E1!important;
+    padding: 8px 5px!important;
+}
+
+.da-arrows span {
+    background-color: transparent!important;
+    -moz-box-shadow: none!important;
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+}
+.da-arrows span:after {
+    background-image: url(../images/arrows_rent.png)!important;
+}
+/*categorias*/
+.item-categoria {
+	border-radius: 4px!important;
+    overflow: hidden!important;
+    border: 1px solid #ddd!important;
+	box-shadow: none!important;
+}
+.item-categoria:hover {
+    -moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50)!important;
+    -webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50)!important;
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50)!important;
+}
+
+/*por que alquilar un auto*/
+.encabezado {
+	margin-bottom:25px!important;
+}
+.bloq {
+	border: 1px solid #DDDDDD!important;
+	border-radius: 4px!important;
+}
+
+
+/*beneficios*/
+
+.item-beneficio{
+	border: 1px solid #EEEEEE!important;
+	-moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50)!important;
+	-webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50)!important;
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50)!important;
+    border-radius: 4px!important;
+}
+
+/*contactos*/
+
+#enviarform, #nuevaReserva, #terminarProceso {
+    background-color: #2a9ed9!important;
+}
+#enviarform:hover, #nuevaReserva:hover, #terminarProceso:hover  {
+    opacity: .8!important;
+}
+
+
+
+.contact-form-name {
+    margin-bottom: 10px;
+}
+
+
+
+/*Media Queries*/
+
+@media screen and (max-width: 720px) {
+    /*HOME*/
+    /*ELIMINO EL HEADER DESBLEGABLE*/
+    .fixed-header {
+        display: none!important;
+    }
+    /*BANNER*/
+    #banner-9310 {
+        margin-bottom: 0!important;
+    }
+    /*CONTENIDO DEL BANNER*/
+    .vc_custom_1475605839110,.vc_custom_1475605795223 {
+        padding-right: 0!important;
+    }
+
+    /*ELIMINO EL 2DO SLIDER DE LA HOME*/
+
+    #da-slider2 {
+        display: none!important;
+    }
+
+    /*FIN HOME*/
+
+    /*PORQUE ALQUILAR UN AUTO*/
+    #bloques {
+        height: auto!important;
+    }
+    #bloques .item-bloque { 
+        width: 100%!important;
+        position: inherit!important;
+        top: 0!important;
+        left: 0!important;
+    }
+
+
+}
+
+
+
+

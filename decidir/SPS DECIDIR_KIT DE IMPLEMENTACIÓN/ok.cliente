@@ -1,0 +1,15 @@
+To: <!--eMailCliente-->
+Subject: Confirmacion de pago en COMERCIO
+From: <!--eMailComercio-->
+Reply-To: <!--eMailComercio-->
+Bcc: mailsps@decidir.com.ar
+
+Estimado Sr/a. <!--nombreEnTarjeta-->, 
+la operacion <!--numeroOperacion--> realizada en COMERCIO fue aprobada con el codigo de aprobacion <!--codigoAutorizacion--> .
+
+Tarjeta: <!--tarjeta--> .
+Moneda: <!--moneda--> .
+Monto: <!--monto--> .
+Cuotas: <!--cuotas--> .
+
+Muchas gracias.

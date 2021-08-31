@@ -1,0 +1,29 @@
+        Options +FollowSymLinks
+        RewriteEngine on
+
+        Rewriterule ^index.html$ index.php?p=home
+        Rewriterule ^indexes.html$ index.php?p=home&i=2
+        Rewriterule ^indexpo.html$ index.php?p=home&i=3
+        Rewriterule ^indexen.html$ index.php?p=home&i=4
+        Rewriterule ^porque.html$ index.php?p=porque
+        Rewriterule ^categorias-alquiler-de-autos-en-ushuaia.html$ index.php?p=categorias
+        Rewriterule ^beneficios.html$ index.php?p=beneficios
+
+        Rewriterule ^contacto-alquiler-de-autos-en-ushuaia.html$ index.php?p=contacto
+        Rewriterule ^gracias-contacto-alquiler-de-autos-en-ushuaia.html$ index.php?p=contacto
+        Rewriterule ^terminos.html$ index_terminos.php?p=terminos
+        Rewriterule ^faq.html$ index.php?p=faq
+		Rewriterule ^reserva-alquiler-de-autos-en-ushuaia.html$ index.php?p=reserva
+		Rewriterule ^gracias-reserva-alquiler-de-autos-en-ushuaia.html$ index.php?p=reserva
+		Rewriterule ^decidirexito.html$ index.php?p=reserva&backDecidir=1
+		Rewriterule ^decidirnoexito.html$ index.php?p=reserva&backDecidir=2
+		Rewriterule ^mercadopago.html$ index.php?p=reserva&backMercadopago=1
+
+		Rewriterule ^discoverpay.html$ login.php?p=1
+		Rewriterule ^discoverpayes.html$ login.php?p=2
+		Rewriterule ^discoverpaypo.html$ login.php?p=3
+		Rewriterule ^discoverpayen.html$ login.php?p=4
+		Rewriterule ^discoverpayerror.html$ login.php?p=5
+
+		RewriteRule ^discoverpay_(.+)\.html index.php?p=discoverpay&id_reserva=$1
+

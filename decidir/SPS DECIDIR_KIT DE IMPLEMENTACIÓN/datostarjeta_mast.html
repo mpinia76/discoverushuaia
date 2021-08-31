@@ -1,0 +1,60 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Language" content="es-ar">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>SPS DECIDIR - Datos de la Tarjeta de Cr&eacute;dito</title>
+<style>
+.texto{font-family:verdana,arial,helvetica;font-size:11px}
+.textochico{font-family:verdana,arial,helvetica;font-size:9px}
+</style>
+<SCRIPT LANGUAGE="JavaScript1.1" SRC="/sps_ar/submit_3.js"></SCRIPT>
+</HEAD>
+<BODY leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<div align="center">
+<b><font class="texto">Por favor, ingrese los siguientes datos de la tarjeta MASTERCARD y haga su pago:</font></b>
+<FORM METHOD="POST" ACTION="/sps-ar/ConfirmacionTransaccion" id="DatosTarjetaForm" name="DatosTarjetaForm" onsubmit="return beforesubmit();">
+<table bgcolor="eff0f1" border="1" cellpadding="0" cellspacing="10" bordercolor="000099" rules="groups" width="652" style="border-collapse: collapse">
+	<input type="hidden" name="MTARJETA" value="1">
+	<TR> 
+	<TD width="180"><p align="right"><font face="Verdana"><B><FONT class="texto">Titular de la Tarjeta: </FONT></B></TD>
+	<TD width="466"><p align="left"><FONT class="texto"><INPUT maxLength="30" name="NOMBREENTARJETA" size="30"></FONT> 
+	<FONT class="textochico">(como aparece en la tarjeta)</FONT></TD>
+	</TR>
+	<TR> 
+	<TD width="180"><p align="right"><B><FONT class="texto">N&uacute;mero de Tarjeta:&nbsp; </FONT></B></TD>
+	<TD width="466"><p align="left"><FONT class="texto"><INPUT maxLength="16" name="NROTARJETA" size="16" autocomplete="off"></FONT>
+	<nobr><font class="textochico">(sin espacios, ni guiones)</FONT></nobr></TD>
+	</TR>
+	<TR> 
+	<TD width="180"><p align="right"><B><FONT class="texto">Fecha de Vencimiento:</FONT></B></TD>
+	<TD width="466"><p align="left"><FONT class="texto"><input maxlength="4" name="VENCTARJETA" size="4" autocomplete="off"></FONT> 
+	<input type="hidden" name="VENCIMIENTO" size="4"><nobr><FONT class="textochico">(en formato <b>MMAA</b>)</FONT></nobr></TD>
+	</TR>
+	<TR> 
+	<TD width="180"><p align="right"><B><FONT class="texto">C&oacute;digo de Seguridad: </FONT></B></TD>
+	<TD width="466"><p align="left"><FONT class="texto"><INPUT type="password" maxLength="4" name="CODSEGURIDAD" size="4" autocomplete="off"></FONT></TD>
+	</TR>
+	<TR> 
+	<TD width="180"><p align="right"><B><FONT class="texto">E-Mail: </FONT></B></TD>
+	<TD width="466"><p align="left"><FONT class="texto"><INPUT maxLength="50" name="EMAILCLIENTE" size="50"></FONT></TD>
+	</TR>
+	<tr>
+        <td width="180" align="right"><b><font class="texto">Tipo de documento: </b></font></td>
+        <td width="466"><SELECT name="TIPODOC"><OPTION value="1" selected>DNI</OPTION><OPTION value="2">CI</OPTION><OPTION value="3">LE</OPTION><OPTION value="4">LC</OPTION></SELECT></td>
+    </tr>
+	<tr> 
+        <td width="180" align="right"><b><font class="texto">N&uacute;mero de Documento: </b></font></td>
+        <td width="466"><font class="texto"><input maxLength="20" name="NRODOC" size="20"></font></td>
+      </tr>
+</table>
+<table border = "0" height="61" align="center">
+	<td height="57" align="center"><br>
+		<input TYPE="SUBMIT" VALUE="Aceptar" name="ok">
+		<input TYPE="RESET" VALUE="Cancelar" onclick="window.history.back();">
+		<br><a TARGET="_blank" href="https://sps.decidir.com/sps_ar/sps_compra.html"><IMG src="/img/botonsps.gif" border="0">
+</table>
+</FORM>
+</BODY>
+</HTML>

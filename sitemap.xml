@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>https://www.discoverushuaia.com.ar/</loc>
+  <changefreq>weekly</changefreq>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://www.discoverushuaia.com.ar/index.html</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.discoverushuaia.com.ar/porque.html</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.discoverushuaia.com.ar/categorias-alquiler-de-autos-en-ushuaia.html</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.discoverushuaia.com.ar/beneficios.html</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.discoverushuaia.com.ar/contacto-alquiler-de-autos-en-ushuaia.html</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.discoverushuaia.com.ar/faq.html</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.discoverushuaia.com.ar/reserva-alquiler-de-autos-en-ushuaia.html</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+</urlset>

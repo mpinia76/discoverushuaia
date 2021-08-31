@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV='expires' CONTENT='0'>
+<META HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+<Script>
+       function respuestaTardia() {
+              if (document.estado.terminoTodo.value=='true') {               
+                     if (document.getElementById){ //se obtiene el id
+                            var el = document.getElementById('enproceso'); //se define la variable "el" igual a nuestro div
+                            el.style.display = 'none'; //damos un atributo display:none que oculta el div
+                     }      
+              }
+       }
+</SCRIPT> 
+<title>En Proceso</title>
+</HEAD>
+<BODY  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onload="respuestaTardia();">
+<FORM name="estado">
+<input type="hidden" name="terminoTodo" value="false">
+</FORM>
+<br><br>
+<div id="enproceso" align="center">
+<table bgcolor="eff0f1" border="1" cellpadding="0" cellspacing="10" bordercolor="000099" rules="groups" width="652" style="border-collapse: collapse">
+<tr><td align="center"><font color="000099" size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong>PROCESANDO LOS DATOS DE SU TARJETA</strong></font></p></td></tr>
+<tr><td align="center"><font color="000099" size="2" face="Verdana, Arial, Helvetica, sans-serif">Aguarde un momento por favor...<br>
+</font></td></tr>
+</table>
+</div> 
+</BODY>
+</HTML>

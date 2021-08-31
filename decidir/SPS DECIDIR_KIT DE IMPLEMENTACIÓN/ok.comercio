@@ -1,0 +1,16 @@
+To: <!--eMailComercio-->
+Subject: Transaccion Aprobada en COMERCIO
+From: infosps@decidir.com.ar
+Bcc: mailsps@decidir.com.ar
+
+Se ha realizado con exito la operacion <!--numeroOperacion-->
+
+Los datos son los siguientes:
+
+Nombre: <!--nombreEnTarjeta-->
+Monto: <!--monto-->
+Codigo de Autorizacion: <!--codigoAutorizacion-->
+Numero de Operacion: <!--numeroOperacion-->
+Tipo de Documento: <!--tipoDocumento-->
+Numero de Documento: <!--numeroDocumento-->
+eMail Cliente: <!--eMailCliente-->
