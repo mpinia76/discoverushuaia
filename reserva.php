@@ -911,7 +911,19 @@
                         echo $total_nombre." ".formatMontoToView($arrayTotal[2]).'<br><br>';*/
                         echo '<div id="radiosDescuentos">';
 
-                        $laSQL = "SELECT * FROM  descuentos ";
+                        /*$laSQL = "SELECT * FROM  descuentos ";*/
+                        $laSQL = "SELECT DISTINCT d.*
+                                    FROM descuentos d
+                                    LEFT JOIN descuento_periodos dp 
+                                        ON dp.descuento_id = d.id
+                                        AND CURDATE() BETWEEN STR_TO_DATE(dp.desde, '%d/%m/%Y') AND STR_TO_DATE(dp.hasta, '%d/%m/%Y')
+                                    WHERE (
+                                        dp.id IS NOT NULL  -- hay al menos un periodo válido hoy
+                                        OR NOT EXISTS (
+                                            SELECT 1 FROM descuento_periodos dp2 WHERE dp2.descuento_id = d.id
+                                        )  -- o no tiene ningún periodo cargado
+                                    )
+                                ";
                         if (isset($_SESSION['idioma'])) {
                             switch ($_SESSION['idioma']) {
                                 case 'es':
