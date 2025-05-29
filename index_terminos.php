@@ -548,6 +548,15 @@ while($tNow <= $tEnd){
             <div class="footer-widgets col-md-6">
                 <ul>
                     <li>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i> USHUAIA
+                    </li>
+                    <li>
+                        25 de Mayo 260 Planta baja Oficina 4
+                    </li>
+                    <li>
+                        Ushuaia, Tierra del Fuego, Argentina (9410)
+                    </li>
+                    <li>
                         Email: <mark><a href="mailto:info@discoverushuaia.com.ar">info@discoverushuaia.com.ar</a></mark>
                         <br>
                         <a href="https://www.facebook.com/discoverrentacar/" target="_blank"><img src="img/footfb.png"></a>
