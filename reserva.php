@@ -918,32 +918,32 @@
                                         ON dp.descuento_id = d.id
                                         AND CURDATE() BETWEEN STR_TO_DATE(dp.desde, '%d/%m/%Y') AND STR_TO_DATE(dp.hasta, '%d/%m/%Y')
                                     WHERE (
-                                        dp.id IS NOT NULL  -- hay al menos un periodo válido hoy
+                                        dp.id IS NOT NULL
                                         OR NOT EXISTS (
                                             SELECT 1 FROM descuento_periodos dp2 WHERE dp2.descuento_id = d.id
-                                        )  -- o no tiene ningún periodo cargado
+                                        ) 
                                     )
                                 ";
                         if (isset($_SESSION['idioma'])) {
                             switch ($_SESSION['idioma']) {
                                 case 'es':
 
-                                    $laSQL .=' WHERE activo = 1';
+                                    $laSQL .=' AND activo = 1';
 
                                     break;
                                 case 'po':
-                                    $laSQL .=' WHERE activo_portugues = 1';
+                                    $laSQL .=' AND activo_portugues = 1';
                                     break;
                                 case 'en':
 
-                                    $laSQL .=' WHERE activo_ingles = 1';
+                                    $laSQL .=' AND activo_ingles = 1';
                                     break;
 
                             }
 
                         }
                         else{
-                            $laSQL .=' WHERE activo = 1';
+                            $laSQL .=' AND activo = 1';
                         }
                         $laSQL .=' ORDER BY orden ASC';
                         $result = mysqli_query($dbh2,$laSQL);
