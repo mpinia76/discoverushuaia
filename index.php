@@ -1,4 +1,5 @@
 ﻿<?php
+error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
 
 	include("conex.php");
 	include("db.php");
@@ -677,10 +678,10 @@ echo "<option value='$Id'>$Nombre</option>";
 			?>
             </select></div>
 
-            </td><td width="12%" align="left" valign="middle"><?php echo utf8_encode(DIA_RETIRO);?><br><input name="retiro" type="text" required id="retiro" placeholder="<?php echo utf8_encode(ELEGIR);?>" onBlur="devolucion2();" onChange="dameSelectHorariosIndex();"><br>
+            </td><td width="12%" align="left" valign="middle"><?php echo utf8_encode(DIA_RETIRO);?><br><input name="retiro" type="text" required id="retiro" placeholder="<?php echo utf8_encode(ELEGIR);?>" onBlur="devolucion2();" onChange="dameSelectHorariosIndex('retiro');"><br>
             <div class="devolucion">
             <?php echo utf8_encode(DIA_DEVOLUCION);?><br>
-            <input name="devolucion" placeholder="<?php echo utf8_encode(ELEGIR);?>" type="text"  id="devolucion" required onChange="dameSelectHorariosIndex();">
+            <input name="devolucion" placeholder="<?php echo utf8_encode(ELEGIR);?>" type="text"  id="devolucion" required onChange="dameSelectHorariosIndex('devolucion');">
             </div>
 
             </td><td width="12%" align="left" valign="middle"><?php echo utf8_encode(HORA_RETIRO);?><br>
@@ -951,15 +952,18 @@ $retiro = date("d/m/Y", strtotime($retiro ."+ ".$dias_antes." days"));
       return date;
     }
   } );
-			function dameSelectHorariosIndex() {
+			function dameSelectHorariosIndex(origen) {
 				$.ajax({
 						type : 'POST',
 						data : $('#form_categorias').serialize(),
 						url : 'dameSelectHorariosIndex.php',
 						datatype : 'json',
 						success: function(data){
-							$('#selectHoraRetiro').html(data.selectHoraRetiro);
-							$('#selectHoraDevolucion').html(data.selectHoraDevolucion);
+                            if (origen === 'retiro') {
+                                $('#selectHoraRetiro').html(data.selectHoraRetiro);
+                            } else if (origen === 'devolucion') {
+                                $('#selectHoraDevolucion').html(data.selectHoraDevolucion);
+                            }
 
 						}
 					});

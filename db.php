@@ -1,7 +1,7 @@
 <?php
 function db_dir()
 {
-	$ret = "163.10.35.37";
+	$ret = "localhost";
 	return $ret;
 }
 
@@ -13,7 +13,7 @@ function db_usr()
 
 function db_pass()
 {
-	$ret = "secyt";
+	$ret = "";
 	return $ret;
 }
 
@@ -26,7 +26,7 @@ function db_base()
 
 function db_dir_gestion()
 {
-	$ret = "163.10.35.37";
+	$ret = "localhost";
 	return $ret;
 }
 
@@ -38,7 +38,7 @@ function db_usr_gestion()
 
 function db_pass_gestion()
 {
-	$ret = "secyt";
+	$ret = "";
 	return $ret;
 }
 

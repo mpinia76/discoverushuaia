@@ -913,17 +913,21 @@
 
                         /*$laSQL = "SELECT * FROM  descuentos ";*/
                         $laSQL = "SELECT DISTINCT d.*
-                                    FROM descuentos d
-                                    LEFT JOIN descuento_periodos dp 
-                                        ON dp.descuento_id = d.id
-                                        AND CURDATE() BETWEEN STR_TO_DATE(dp.desde, '%d/%m/%Y') AND STR_TO_DATE(dp.hasta, '%d/%m/%Y')
-                                    WHERE (
-                                        dp.id IS NOT NULL
-                                        OR NOT EXISTS (
-                                            SELECT 1 FROM descuento_periodos dp2 WHERE dp2.descuento_id = d.id
-                                        ) 
+                                  FROM descuentos d
+                                  LEFT JOIN descuento_periodos dp 
+                                    ON dp.descuento_id = d.id
+                                    AND (
+                                        STR_TO_DATE('$retiro', '%d/%m/%Y') BETWEEN STR_TO_DATE(dp.desde, '%Y-%m-%d') AND STR_TO_DATE(dp.hasta, '%Y-%m-%d')
+                                        OR STR_TO_DATE('$devolucion', '%d/%m/%Y') BETWEEN STR_TO_DATE(dp.desde, '%Y-%m-%d') AND STR_TO_DATE(dp.hasta, '%Y-%m-%d')
+                                        OR STR_TO_DATE(dp.desde, '%Y-%m-%d') BETWEEN STR_TO_DATE('$retiro', '%d/%m/%Y') AND STR_TO_DATE('$devolucion', '%d/%m/%Y')
+                                        OR STR_TO_DATE(dp.hasta, '%Y-%m-%d') BETWEEN STR_TO_DATE('$retiro', '%d/%m/%Y') AND STR_TO_DATE('$devolucion', '%d/%m/%Y')
                                     )
-                                ";
+                                  WHERE (
+                                      dp.id IS NOT NULL
+                                      OR NOT EXISTS (
+                                          SELECT 1 FROM descuento_periodos dp2 WHERE dp2.descuento_id = d.id
+                                      )
+                                  )";
                         if (isset($_SESSION['idioma'])) {
                             switch ($_SESSION['idioma']) {
                                 case 'es':
@@ -1138,7 +1142,7 @@
                         }
                         ?></select>
                     <div class="col-md-12" style="margin:10px 0px; padding:0px">
-                        <div class="vc_col-sm-6"><?php echo utf8_encode(DIA_RETIRO);?>:<br><input name="retiro" type="text" required  id="retiro" value="<?php echo $retiro?>" onChange="dameSelectHorarios();" readonly="readonly"></div>
+                        <div class="vc_col-sm-6"><?php echo utf8_encode(DIA_RETIRO);?>:<br><input name="retiro" type="text" required  id="retiro" value="<?php echo $retiro?>" onChange="dameSelectHorarios('retiro');" readonly="readonly"></div>
                         <input type="hidden" name="HoraRetiroRecibida" id="HoraRetiroRecibida" value="<?php echo $HoraRetiro;?>" >
                         <div class="vc_col-sm-6" id="selectHoraRetiro"><?php echo utf8_encode(HORA_RETIRO);?><br><select name="HoraRetiro" id="HoraRetiro" required style="width:150px" onChange="igualarDevolucion();dameSelectCategorias()">
 
@@ -1282,7 +1286,7 @@
                         ?></select>
 
                     <div class="col-md-12" style="margin:10px 0px; padding:0px">
-                        <div class="vc_col-sm-6"><?php echo utf8_encode(DIA_DEVOLUCION);?>:<br><input name="devolucion" id="devolucion" type="text" required  value="<?php echo $devolucion?>" onChange="dameSelectHorarios();" readonly="readonly"></div>
+                        <div class="vc_col-sm-6"><?php echo utf8_encode(DIA_DEVOLUCION);?>:<br><input name="devolucion" id="devolucion" type="text" required  value="<?php echo $devolucion?>" onChange="dameSelectHorarios('devolucion');" readonly="readonly"></div>
                         <input type="hidden" name="HoraDevolucionRecibida" id="HoraDevolucionRecibida" value="<?php echo $HoraDevolucion;?>" >
                         <div class="vc_col-sm-6" id="selectHoraDevolucion"><?php echo utf8_encode(HORA_DEVOLUCION);?><br><select name="HoraDevolucion" id="HoraDevolucion" required style="width:150px" onChange="dameSelectCategorias();">
                                 <?php
@@ -1611,20 +1615,23 @@
 
     }
 
-    function dameSelectHorarios() {
+    function dameSelectHorarios(origen) {
         $.ajax({
             type : 'POST',
             data : $('#contact-form').serialize(),
             url : 'dameSelectHorarios.php',
             datatype : 'json',
             success: function(data){
-
-                $('#selectHoraRetiro').html(JSON.parse(data).selectHoraRetiro);
-                $('#selectHoraDevolucion').html(JSON.parse(data).selectHoraDevolucion);
+                if (origen === 'retiro') {
+                    $('#selectHoraRetiro').html(data.selectHoraRetiro);
+                } else if (origen === 'devolucion') {
+                    $('#selectHoraDevolucion').html(data.selectHoraDevolucion);
+                }
                 dameSelectCategorias();
             }
         });
     }
+
 
     function dameSelectTarjetas() {
         $.ajax({
@@ -1718,7 +1725,8 @@
     $(function() {
         mostrarResto();
         dameSelectCategorias();
-        dameSelectHorarios();
+        dameSelectHorarios('retiro');
+        dameSelectHorarios('devolucion');
     })
 
 
