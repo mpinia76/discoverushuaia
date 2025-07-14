@@ -96,6 +96,7 @@ define('HACE_TU_RESERVA', 'Faça sua reserva');
 define('RESERVA_ONLINE_DESACTIVADA', 'O sistema de reserva on-line não está disponível momentaneamente. Entre em contato conosco para resolver sua reserva <a href="contacto-alquiler-de-autos-en-ushuaia.html"><u>aqui.</u></a><br>Muito obrigado.');
 define('RESERVA_FIN_PROCESO_SIN_TARJETA', 'Sua reserva foi realizada com sucesso! Nas próximas 24 horas entraremos em contato por WhatsApp para continuar com o processo de pagamento selecionado. Você tem dúvidas? Você pode nos escrever para <a href="https://wa.me/5492901646393" target="_blank">+54 9 2901 64-6393</a> Muito obrigado por nos escolher!');
 define('NUEVA_RESERVA', 'Nova Reserva');
+define('NUMERO_RESERVA', '# Reserva');
 define('ESTIMADO', 'Prezado');
 define('GRACIAS_POR_ELEGIRNOS', 'Obrigado por escolher Discover Ushuaia Rent a car.');
 define('NUESTRO_STAFF', 'Nossa equipe entrará em contato com você em breve para organizar os detalhes do pagamento para confirmar sua reserva.<br><br>Esperamos por você no fim do mundo! ');

@@ -1,6 +1,7 @@
 <?php
 ini_set('memory_limit', '-1');
 ini_set('max_execution_time', 300);
+error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
 include("conex.php");
 include("db.php");
 include("funcionesComunes.php");
@@ -36,7 +37,7 @@ echo $y." years\n";
 echo $d." days\n";
 echo $h." hours\n";
 echo $m." minutes\n";*/
-$nombreFile = 'Reserva_'.date('Ymd');
+$nombreFile = 'Contacto_'.date('Ymd');
 $_Log = fopen("logs/" . $nombreFile . ".log", "a+") or die("Operation Failed!");
 
 $arrayResult=array();
@@ -203,7 +204,7 @@ if ($dias>=0) {
 	if(mysqli_affected_rows($dbh2)>0){
 		while ($rowL = mysqli_fetch_array($result)) {
 			//echo $catMonto[$rowL['categoria_id']].'*='.$rowL['coheficiente'];
-			fputs($_Log, date('Y-m-d G:i:s') . $catMonto[$rowL['categoria_id']].'*='.$rowL['coheficiente'] ."\n");
+			//fputs($_Log, date('Y-m-d G:i:s') . $catMonto[$rowL['categoria_id']].'*='.$rowL['coheficiente'] ."\n");
 			if ($catDescuento[$rowL['categoria_id']]) {
 				$catMonto[$rowL['categoria_id']]*=$rowL['coheficiente'];
 			}
@@ -254,7 +255,7 @@ elseif ($faltaEstadia) {
 	$html='<strong>'.utf8_encode(SIN_ESTADIA2).'</strong>';
 }
 else{
-	$html=utf8_encode(CATEGORIA_DE_AUTO).':<br><select name="auto" style="width:100%; margin:2px 0px" id="auto" placeholder="Categoria de auto" onChange="dameSelectExtras()">';
+	$html='<select name="auto[]" required multiple="multiple" class="SlectBox2" style="width:100%; margin:2px 0px" id="auto" placeholder="Categoria de auto">';
 
 	$laSQL = "SELECT * FROM  categorias where activa='1' ORDER BY orden";
 	$result = mysqli_query($dbh2,$laSQL);
@@ -307,57 +308,8 @@ else{
 	$html .='</select>';
 }
 	$arrayResult["categorias"]=$html;
-if ($faltaTarifa) {
-	$html='';
-}
-else{
-	$html=utf8_encode(COBERTURA_SEGURO).':<br>
-<select name="seguro" style="width:100%; margin:2px 0px" id="seguro" placeholder="'.utf8_encode(COBERTURA_SEGURO).'" onChange="sumarTotal()">';
 
-
-
-
-	/*$laSQL = "SELECT * FROM seguros ORDER BY orden ASC";
-	$result = mysqli_query($dbh2,$laSQL);
-
-	while ($rowL = mysqli_fetch_array($result)) {
-		$Id=($rowL['id']);
-		if ($dias>0) {
-
-			$diasSeguro = ($horasSeguro>0)?$dias+1:$dias;
-			$importe=$rowL['importe']*$diasSeguro;
-		}
-		else $importe=$rowL['importe'];
-		if (isset($_SESSION['idioma'])) {
-			switch ($_SESSION['idioma']) {
-				case 'es':
-
-					$Nombre=$rowL['seguro'];
-
-				break;
-				case 'po':
-					$Nombre=$rowL['seguro_portugues'];
-				break;
-				case 'en':
-
-					$Nombre=$rowL['seguro_ingles'];
-				break;
-
-			}
-
-		}
-		else{
-			$Nombre=$rowL['seguro'];
-		}
-		$style = ($Id=='3')?'':' class=\'opcionAzul\'';
-		$html .="<option value='".$Id."-".$importe."' ".$style.">".$Nombre." ".formatMontoToView($importe)."</option>";
-	}	*/
-
-	$html .='</select>';
-}
-	$arrayResult["seguros"]=$html;
 	fclose($_Log);
 	header("Content-Type: application/json", true);
 	echo json_encode($arrayResult);
-//echo 'Devolucion: '.$dia1.' - Hora retiro: '.$hora1.' Retiro: '.$dia2.' - Hora devolucion: '.$_POST['HoraDevolucion'];
 ?>

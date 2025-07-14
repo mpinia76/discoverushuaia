@@ -612,6 +612,7 @@
                             if ((!$permite_tajeta) &&(!$permite_mercadopago)){
                                 $cuerpo = "<div style=\"font-family:tahoma,sans-serif;color:rgb(68,68,68)\">
 					".utf8_encode(ESTIMADO)." ".$_POST['nombre']." ".$_POST['apellido']."<br>
+					".utf8_encode(NUMERO_RESERVA)." ".$ultimo_nro."<br>
 					".utf8_encode(GRACIAS_POR_ELEGIRNOS)."<br>";
 
                                 $cuerpo .= utf8_encode(NUESTRO_STAFF);

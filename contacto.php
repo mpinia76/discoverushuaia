@@ -62,7 +62,7 @@ Tel. (54) 11 52547702 <br>
 </div>
 <p>&nbsp;<p>
 
-<form action="gracias-contacto-alquiler-de-autos-en-ushuaia.html" method="post" name="contact-form" style="background-color:#FFF;box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); padding:20px; text-align:left" class="contact-form">
+<form action="gracias-contacto-alquiler-de-autos-en-ushuaia.html" method="post" name="contact-form" id="contact-form" style="background-color:#FFF;box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); padding:20px; text-align:left" class="contact-form">
 <h5><?php echo utf8_encode(CONSULTA_POR_ALQUILER);?></h5><p></p>
                     	<?php
 /*$laSQL = "SELECT * FROM  Locales order by Nombre asc";
@@ -146,6 +146,7 @@ $cuerpo .= "<p><strong>".utf8_encode(DEVOLUCION)."</strong><br>".utf8_encode(LUG
 
 $cuerpo .= utf8_encode(COMENTARIO).": ".$mensaje."<p>";
 
+
 $cuerpo .= utf8_encode(ENVIADO_EL)." ".date("d-m-Y")." ".utf8_encode(A_LAS)." ".date("H:i")."<p>";
 
 
@@ -224,9 +225,9 @@ echo "<option value='".$Id."' ".$Locselected.">".$Nombre."</option>";
 			}
 			?></select>
 <div class="col-md-12" style="margin:10px 0px; padding:0px">
-<div class="vc_col-sm-6"><?php echo utf8_encode(DIA_RETIRO);?>:<br><input name="retiro" type="text" required  id="retiro" value="<?php echo $retiro?>"></div>
+<div class="vc_col-sm-6"><?php echo utf8_encode(DIA_RETIRO);?>:<br><input name="retiro" type="text" required  id="retiro" value="<?php echo $retiro?>" onChange="dameSelectCategorias()"></div>
 
-<div class="vc_col-sm-6"><?php echo utf8_encode(HORA_RETIRO);?><br><select name="HoraRetiro" id="HoraRetiro" required style="width:150px"><option value="" disabled selected><?php echo utf8_encode(ELEGIR);?></option>
+<div class="vc_col-sm-6"><?php echo utf8_encode(HORA_RETIRO);?><br><select name="HoraRetiro" id="HoraRetiro" required style="width:150px" onChange="dameSelectCategorias()"><option value="" disabled selected><?php echo utf8_encode(ELEGIR);?></option>
 
 <?php $start = "08:30";
 $end = "22:00";
@@ -247,7 +248,7 @@ while($tNow <= $tEnd){
 </div>
 <br>
 <?php echo utf8_encode(LUGAR_DE_DEVOLUCION);?>:
-<select name="localdev" style="width:100%; margin:2px 0px" required><?php
+<select name="localdev" style="width:100%; margin:2px 0px" required ><?php
 $dbh2 = mysqli_connect(db_dir_gestion(), db_usr_gestion(), db_pass_gestion(), db_base_gestion());
 //mysql_select_db(db_base_gestion(), $dbh2);
 $laSQL = "SELECT * FROM  lugars WHERE activo = 1 order by lugar asc";
@@ -285,9 +286,9 @@ echo "<option value='".$Id."' ".$Locselected.">".$Nombre."</option>";
 			?></select>
 
 <div class="col-md-12" style="margin:10px 0px; padding:0px">
-<div class="vc_col-sm-6"><?php echo utf8_encode(DIA_DEVOLUCION);?>:<br><input name="devolucion" id="devolucion" type="text" required  value="<?php echo $devolucion?>"></div>
+<div class="vc_col-sm-6"><?php echo utf8_encode(DIA_DEVOLUCION);?>:<br><input name="devolucion" id="devolucion" type="text" required  value="<?php echo $devolucion?>" onChange="dameSelectCategorias()"></div>
 
-<div class="vc_col-sm-6"><?php echo utf8_encode(HORA_DEVOLUCION);?><br><select name="HoraDevolucion" id="HoraDevolucion" required style="width:150px"><option value="" disabled selected><?php echo utf8_encode(ELEGIR);?></option>
+<div class="vc_col-sm-6"><?php echo utf8_encode(HORA_DEVOLUCION);?><br><select name="HoraDevolucion" id="HoraDevolucion" required style="width:150px" onChange="dameSelectCategorias()"><option value="" disabled selected><?php echo utf8_encode(ELEGIR);?></option>
 <?php $start = "08:30";
 $end = "22:00";
 
@@ -307,43 +308,13 @@ while($tNow <= $tEnd){
 </div>
 
 <?php echo utf8_encode(CATEGORIA_DE_AUTO);?>:<br>
+        <div id="selectAutos">
 <select name="auto[]" required multiple="multiple" class="SlectBox2" style="width:100%; margin:2px 0px" id="auto" placeholder="Categoria de auto">
 
-                   			<?php
-$laSQL = "SELECT * FROM  categorias where Activo='1' ";
-$result = mysqli_query($link,$laSQL);
-$i=1;
-			while ($rowL = mysqli_fetch_array($result)) {
-				$Id=utf8_encode($rowL['Id']);
-				$Categoria=utf8_encode($rowL['Categoria']);
-				if (isset($_SESSION['idioma'])) {
-					switch ($_SESSION['idioma']) {
-						case 'es':
 
-							$Nombre=utf8_encode($rowL['Nombre']);
-
-						break;
-						case 'po':
-							$Nombre=utf8_encode($rowL['Nombre_Portugues']);
-						break;
-						case 'en':
-
-							$Nombre=utf8_encode($rowL['Nombre_Ingles']);
-						break;
-
-					}
-
-				}
-				else{
-					$Nombre=utf8_encode($rowL['Nombre']);
-				}
-
-				if($auto==$Nombre){$autoselect="selected";}else{$autoselect="";}
-				echo"<option value='$Nombre' $autoselect>$Nombre</option>";
-			}?>
             </select>
 
-
+        </div>
 
 
 <br>
@@ -372,6 +343,25 @@ jQuery.noConflict();
             window.asd = jQuery('.SlectBox2').SumoSelect({ csvDispCount: 3, captionFormatAllSelected: "Todos" });
 
         });
+function dameSelectCategorias() {
+    $.ajax({
+        type: 'POST',
+        url: 'dameSelectCategoriasContacto.php',
+        data: $('#contact-form').serialize(),
+        dataType: 'json', // <- IMPORTANTE: bien escrito y reconocido por Zepto
+        success: function(data) {
+            // data ya es un objeto, no hace falta JSON.parse
+            $('#selectAutos').html(data.categorias);
+
+            jQuery('.SlectBox2').SumoSelect({ csvDispCount: 3, captionFormatAllSelected: "Todos" });
+        },
+        error: function(xhr, status, error) {
+            console.error("AJAX ERROR:", error);
+            console.log("RESPONSE TEXT:", xhr.responseText);
+        }
+    });
+}
+
     </script>
 
     <script src="js/jquery.sumoselect.js"></script>

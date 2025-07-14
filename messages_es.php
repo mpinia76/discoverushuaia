@@ -70,8 +70,6 @@ define('ATRACTIVOS_PARA_LLEGAR_EN_AUTO', 'Atractivos para llegar en auto');
 define('CONSULTAR', 'Consultar');
 define('RESERVAR_ON_LINE', 'RESERVAR ON LINE');
 
-define('CONSULTAR', 'Consultar');
-
 define('DONDE_ESTAMOS', 'DONDE ESTAMOS');
 define('OFICINA_RESERVAS_USHUAIA', 'Planta baja Oficina 4');
 define('OFICINA_RESERVAS', 'Oficina de Reservas Puerto Madero');
@@ -99,7 +97,7 @@ define('HACE_TU_RESERVA', 'Hacé tu reserva');
 define('RESERVA_ONLINE_DESACTIVADA', 'El sistema de reservas On-Line no se encuentra disponible momentáneamente. Por favor contáctese con nosotros para	resolver su reserva <a href="contacto-alquiler-de-autos-en-ushuaia.html"><u>aquí.</u></a><br>Muchas gracias.');
 define('RESERVA_FIN_PROCESO_SIN_TARJETA', '¡Tu reserva fue realizada con éxito! En las próximas 24hs vamos a contactarte por Whatsapp para continuar con el proceso de pago seleccionado. ¿Tenés dudas? Podes escribirnos al <a href="https://wa.me/5492901646393" target="_blank">+54 9 2901 64-6393</a>¡Muchas gracias por elegirnos!');
 define('NUEVA_RESERVA', 'Nueva reserva');
-define('TERMINAR_PROCESO', 'Terminar Proceso');
+define('NUMERO_RESERVA', '# reserva');
 define('ESTIMADO', 'Estimado');
 define('GRACIAS_POR_ELEGIRNOS', '¡Muchas gracias por elegir Discover Ushuaia Rent a car!');
 define('NUESTRO_STAFF', 'Nuestro staff se pondrá en contacto con usted para coordinar el pago y los detalles que permitirán continuar el proceso y confirmar su reserva.<br><br>¡Nos vemos en el fin del mundo!');
