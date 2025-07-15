@@ -202,10 +202,10 @@ if ($dias>=0) {
           INNER JOIN categoria_coheficiente_periodos cp
               ON cp.categoria_coheficiente_id = c.id
               AND (
-                  STR_TO_DATE('$dia1', '%d/%m/%Y') BETWEEN STR_TO_DATE(cp.desde, '%Y-%m-%d') AND STR_TO_DATE(cp.hasta, '%Y-%m-%d')
-                  OR STR_TO_DATE('$dia2', '%d/%m/%Y') BETWEEN STR_TO_DATE(cp.desde, '%Y-%m-%d') AND STR_TO_DATE(cp.hasta, '%Y-%m-%d')
-                  OR STR_TO_DATE(cp.desde, '%Y-%m-%d') BETWEEN STR_TO_DATE('$dia1', '%d/%m/%Y') AND STR_TO_DATE('$dia2', '%d/%m/%Y')
-                  OR STR_TO_DATE(cp.hasta, '%Y-%m-%d') BETWEEN STR_TO_DATE('$dia1', '%d/%m/%Y') AND STR_TO_DATE('$dia2', '%d/%m/%Y')
+                  cp.desde BETWEEN '$desde' AND '$hasta'
+                  OR cp.hasta BETWEEN '$desde' AND '$hasta'
+                  OR '$desde' BETWEEN cp.desde AND cp.hasta
+                  OR '$hasta' BETWEEN cp.desde AND cp.hasta
               )
           WHERE c.dia = '$dias'";
 	//echo $laSQL."<br>";
@@ -229,12 +229,12 @@ if ($dias>=0) {
           INNER JOIN categoria_coheficiente_periodos cp
               ON cp.categoria_coheficiente_id = c.id
               AND (
-                  STR_TO_DATE('$dia1', '%d/%m/%Y') BETWEEN STR_TO_DATE(cp.desde, '%Y-%m-%d') AND STR_TO_DATE(cp.hasta, '%Y-%m-%d')
-                  OR STR_TO_DATE('$dia2', '%d/%m/%Y') BETWEEN STR_TO_DATE(cp.desde, '%Y-%m-%d') AND STR_TO_DATE(cp.hasta, '%Y-%m-%d')
-                  OR STR_TO_DATE(cp.desde, '%Y-%m-%d') BETWEEN STR_TO_DATE('$dia1', '%d/%m/%Y') AND STR_TO_DATE('$dia2', '%d/%m/%Y')
-                  OR STR_TO_DATE(cp.hasta, '%Y-%m-%d') BETWEEN STR_TO_DATE('$dia1', '%d/%m/%Y') AND STR_TO_DATE('$dia2', '%d/%m/%Y')
+                  cp.desde BETWEEN '$desde' AND '$hasta'
+                  OR cp.hasta BETWEEN '$desde' AND '$hasta'
+                  OR '$desde' BETWEEN cp.desde AND cp.hasta
+                  OR '$hasta' BETWEEN cp.desde AND cp.hasta
               )
-          WHERE c.dia like '%+%'";
+          WHERE dia like '%+%'";
 		//echo $laSQL."<br>";
 		fputs($_Log, date('Y-m-d G:i:s') . $laSQL ."\n");
 		$result = mysqli_query($dbh2,$laSQL);
