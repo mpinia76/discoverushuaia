@@ -201,8 +201,8 @@ if ($rowL = mysqli_fetch_array($result)) {
 
 			else{
 
-				//$laSQL = "SELECT * FROM  categoria_coheficiente where dia like '%+%' AND categoria_id = ".$auto;
-                $laSQL = "SELECT DISTINCT c.*
+				$laSQL = "SELECT * FROM  categoria_coheficiente where dia like '%+%' AND categoria_id = ".$auto;
+                /*$laSQL = "SELECT DISTINCT c.*
           FROM categoria_coheficiente c
           INNER JOIN categoria_coheficiente_periodos cp
               ON cp.categoria_coheficiente_id = c.id
@@ -212,7 +212,7 @@ if ($rowL = mysqli_fetch_array($result)) {
                   OR STR_TO_DATE(cp.desde, '%Y-%m-%d') BETWEEN STR_TO_DATE('$dia1', '%d/%m/%Y') AND STR_TO_DATE('$dia2', '%d/%m/%Y')
                   OR STR_TO_DATE(cp.hasta, '%Y-%m-%d') BETWEEN STR_TO_DATE('$dia1', '%d/%m/%Y') AND STR_TO_DATE('$dia2', '%d/%m/%Y')
               )
-          WHERE c.dia like '%+%' AND c.categoria_id = ".$auto;
+          WHERE c.dia like '%+%' AND c.categoria_id = ".$auto;*/
 
 				//echo $laSQL."<br>";
 

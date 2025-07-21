@@ -954,51 +954,46 @@
                         $result = mysqli_query($dbh2,$laSQL);
 
                         while ($rowL = mysqli_fetch_array($result)) {
-                            //$totalRadio = $_POST['total'] - ($_POST['total']*$rowL['coheficiente']);
                             $totalRadio = $_POST['total'];
 
-                            if ($rowL['coheficiente']!=0) {
-                                $totalRadio *=$rowL['coheficiente'];
+                            if ($rowL['coheficiente'] != 0) {
+                                $totalRadio *= $rowL['coheficiente'];
                                 $montoDescuento = $totalRadio;
                             }
+
                             if (isset($_SESSION['idioma'])) {
                                 switch ($_SESSION['idioma']) {
                                     case 'es':
-
-                                        $Nombre=$rowL['descuento'];
-                                        $tarjeta=($rowL['tarjeta'])?1:($rowL['mercadopago'])?2:0;
-
+                                        $Nombre = $rowL['descuento'];
+                                        $tarjeta = ($rowL['tarjeta']) ? 1 : (($rowL['mercadopago']) ? 2 : 0);
                                         break;
                                     case 'po':
-                                        $Nombre=$rowL['descuento_portugues'];
-
-                                        $tarjeta=($rowL['tarjetaportugues'])?1:($rowL['mercadopagoportugues'])?2:0;
+                                        $Nombre = $rowL['descuento_portugues'];
+                                        $tarjeta = ($rowL['tarjetaportugues']) ? 1 : (($rowL['mercadopagoportugues']) ? 2 : 0);
                                         break;
                                     case 'en':
-
-                                        $Nombre=$rowL['descuento_ingles'];
-
-                                        $tarjeta=($rowL['tarjeta_ingles'])?1:($rowL['mercadopago_ingles'])?2:0;
+                                        $Nombre = $rowL['descuento_ingles'];
+                                        $tarjeta = ($rowL['tarjeta_ingles']) ? 1 : (($rowL['mercadopago_ingles']) ? 2 : 0);
                                         break;
-
                                 }
-
+                            } else {
+                                $Nombre = $rowL['descuento'];
+                                $tarjeta = 0;
                             }
-                            else{
-                                $Nombre=$rowL['descuento'];
-
-                            }
-
-                            if ($rowL['parcial']!=0) {
-                                $totalRadio *=$rowL['parcial'];
-                                $textoDescuento = $Nombre.' '.formatMontoToView($montoDescuento).' (Pagar ahora: <span id="spanTotal-'.$rowL['id'].'">'.formatMontoToView($totalRadio).'</span>)';
-                            }
-                            else{
-                                $textoDescuento = $Nombre.' <span id="spanTotal-'.$rowL['id'].'">'.formatMontoToView($totalRadio).'</span>';
+                            $Nombre = str_replace(['<p>', '</p>'], '', $Nombre);
+                            if ($rowL['parcial'] != 0) {
+                                $totalRadio *= $rowL['parcial'];
+                                $textoDescuento = $Nombre . ' ' . formatMontoToView($montoDescuento) . ' (Pagar ahora: <span id="spanTotal-' . $rowL['id'] . '">' . formatMontoToView($totalRadio) . '</span>)';
+                            } else {
+                                $textoDescuento = $Nombre . ' <span id="spanTotal-' . $rowL['id'] . '">' . formatMontoToView($totalRadio) . '</span>';
                             }
 
-                            echo'<input onClick="mostrarTarjetas(this)" class="contact-form-name" id="total-'.$rowL['id'].'" coheficiente='.$rowL['coheficiente'].' name="total_pago" type="radio" value="'.$totalRadio.'-'.$tarjeta.'-'.$rowL['id'].'" required/>'.$textoDescuento.'<br>';
+                            echo '<label>';
+                            echo '<input onClick="mostrarTarjetas(this)" class="contact-form-name" id="total-' . $rowL['id'] . '" coheficiente="' . $rowL['coheficiente'] . '" name="total_pago" type="radio" value="' . $totalRadio . '-' . $tarjeta . '-' . $rowL['id'] . '" required />';
+                            echo $textoDescuento;
+                            echo '</label>';
                         }
+
 
 
 
