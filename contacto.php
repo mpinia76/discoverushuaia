@@ -115,7 +115,16 @@ $auto=$_POST['auto'];
 if($auto){
     for ($i=0;$i<count($auto);$i++)
     {
-        $autos.= $auto[$i]." - ";
+        $arrayCategoria=explode('-',$auto[$i]);
+        $laSQL = "SELECT * FROM  categorias where id= ".$arrayCategoria[0];
+        $result = mysqli_query($dbh2,$laSQL);
+        if(mysqli_affected_rows($dbh2)>0){
+            if ($rowL = mysqli_fetch_array($result)) {
+                $categoria_nombre = utf8_encode($rowL['categoria'].' '.$rowL['vehiculos']);
+            }
+        }
+
+        $autos.= $categoria_nombre." - ";
     }
 }
 
@@ -168,6 +177,7 @@ $nombreFile = date('Ymd') . '_log';
 
 
 @mail("info@discoverushuaia.com.ar", "Formulario de retiro para el $retiro", $cuerpo, $cabeceras);
+@mail($email, utf8_encode(CONSULTA_POR_ALQUILER), $cuerpo, $cabeceras);
 
 echo"<h3>".utf8_encode(SU_MENSAJE_FUE_ENVIADO)."</h3>";
 
