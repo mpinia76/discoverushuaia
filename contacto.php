@@ -49,6 +49,7 @@ if (isset($_SESSION['idioma'])) {
 else{
 	include("messages_es.php");
 }
+include("funcionesComunes.php");
 ?>
 <div style="background:#FFF; padding:10px; text-align:left; font-size:11px;box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 " class="col-md-12"><h5><?php echo utf8_encode(DONDE_ESTAMOS);?></h5>
@@ -120,7 +121,7 @@ if($auto){
         $result = mysqli_query($dbh2,$laSQL);
         if(mysqli_affected_rows($dbh2)>0){
             if ($rowL = mysqli_fetch_array($result)) {
-                $categoria_nombre = utf8_encode($rowL['categoria'].' '.$rowL['vehiculos']);
+                $categoria_nombre = utf8_encode($rowL['categoria'].' '.$rowL['vehiculos'].' '.formatMontoToView($arrayCategoria[1]));
             }
         }
 

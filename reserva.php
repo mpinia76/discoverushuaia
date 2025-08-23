@@ -1029,7 +1029,8 @@
 			</div>';
                         echo '
 			<input type="hidden" name="totalFinal" id="totalFinal" value="" >
-			<input id="terminos" name="terminos" type="checkbox" required/><a href="#">'.utf8_encode(ACEPTAR_TERMINOS).'</a>
+			<input id="terminos" name="terminos" type="checkbox" required/><a href="#">'.utf8_encode(ACEPTAR_TERMINOS).'</a><br>
+				<input id="aceptar_tarjeta" name="aceptar_tarjeta" type="checkbox" required/><a href="#">'.utf8_encode(ACEPTAR_TARJETA).'</a>
 			<p></p>';
                         echo '<input type="submit" name="enviarConfirmacion" id="enviarConfirmacion" value="'.utf8_encode(ALQUILAR_AUTO).'" style=" width:100%">';
                     }
