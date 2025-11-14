@@ -833,7 +833,8 @@
 
 
 
-                        echo '<strong>'.utf8_encode(SU_AUTO).':</strong> <input type="hidden" id="unidad_id" name="unidad_id" value="'.$unidad_id.'"><input type="hidden" id="categoriaString" name="categoriaString" value="'.$categoria_nombre.'">'.$categoria_nombre.' '.formatMontoToView($arrayCategoria[1]).'<br>';
+                        //echo '<strong>'.utf8_encode(SU_AUTO).':</strong> <input type="hidden" id="unidad_id" name="unidad_id" value="'.$unidad_id.'"><input type="hidden" id="categoriaString" name="categoriaString" value="'.$categoria_nombre.'">'.$categoria_nombre.' '.formatMontoToView($arrayCategoria[1]).'<br>';
+                        echo '<strong>'.utf8_encode(SU_AUTO).':</strong> <input type="hidden" id="unidad_id" name="unidad_id" value="'.$unidad_id.'"><input type="hidden" id="categoriaString" name="categoriaString" value="'.$categoria_nombre.'">'.$categoria_nombre.'<br>';
                         $total=$_POST['total'];
 
 
@@ -983,7 +984,7 @@
                             $Nombre = str_replace(['<p>', '</p>'], '', $Nombre);
                             if ($rowL['parcial'] != 0) {
                                 $totalRadio *= $rowL['parcial'];
-                                $textoDescuento = $Nombre . ' ' . formatMontoToView($montoDescuento) . ' (Pagar ahora: <span id="spanTotal-' . $rowL['id'] . '">' . formatMontoToView($totalRadio) . '</span>)';
+                                $textoDescuento = $Nombre . ' ' . formatMontoToView($montoDescuento) . ' ('.utf8_encode(PAGAR_AHORA).': <span id="spanTotal-' . $rowL['id'] . '">' . formatMontoToView($totalRadio) . '</span>)';
                             } else {
                                 $textoDescuento = $Nombre . ' <span id="spanTotal-' . $rowL['id'] . '">' . formatMontoToView($totalRadio) . '</span>';
                             }

@@ -110,6 +110,7 @@ define('EXTRAS', 'Adicionales');
 define('COBERTURA_SEGURO', 'Cobertura de seguro');
 define('TOTAL_RESERVA', 'RESERVA TOTAL');
 define('INICIAR_PROCESO_PAGO', 'PROCEDIMENTO DE PAGAMENTO DE INICIAR');
+define('PAGAR_AHORA', 'Pague agora');
 define('ACEPTAR_TERMINOS', 'ACEITO TERMOS E CONDIÇÕES');
 define('ACEPTAR_TARJETA', 'O condutor tem mais de 21 anos e possui carteira de motorista vigente. O titular da reserva e/ou condutor possui um cartão de crédito bancário <strong>Visa ou MasterCard</strong> para a garantia');
 define('ALQUILAR_AUTO', 'Alugue meu carro');

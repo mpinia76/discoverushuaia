@@ -110,6 +110,7 @@ define('EXTRAS', 'Extras Available');
 define('COBERTURA_SEGURO', 'Available insurance coverage');
 define('TOTAL_RESERVA', 'TOTAL RESERVATION');
 define('INICIAR_PROCESO_PAGO', 'START PAYMENT PROCESS');
+define('PAGAR_AHORA', 'Pay now');
 define('ACEPTAR_TERMINOS', 'I ACCEPT TERMS AND CONDITIONS');
 define('ACEPTAR_TARJETA', 'The driver is over 21 years old and holds a valid driver\'s license. The reservation holder and/or driver possesses a <strong>Visa or MarterCard</strong> credit card for the guarantee');
 define('ALQUILAR_AUTO', 'Book My Car');
