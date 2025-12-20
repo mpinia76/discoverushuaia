@@ -223,27 +223,29 @@ if ($dias>=0) {
 		}
 	}
 	else{
-		$laSQL = "SELECT * FROM  categoria_coheficiente where dia like '%+%'";
-		/*$laSQL = "SELECT DISTINCT c.*
-          FROM categoria_coheficiente c
-          INNER JOIN categoria_coheficiente_periodos cp
-              ON cp.categoria_coheficiente_id = c.id
-              AND (
-                  cp.desde BETWEEN '$desde' AND '$hasta'
-                  OR cp.hasta BETWEEN '$desde' AND '$hasta'
-                  OR '$desde' BETWEEN cp.desde AND cp.hasta
-                  OR '$hasta' BETWEEN cp.desde AND cp.hasta
-              )
-          WHERE dia like '%+%'";*/
-		//echo $laSQL."<br>";
-		fputs($_Log, date('Y-m-d G:i:s') . $laSQL ."\n");
-		$result = mysqli_query($dbh2,$laSQL);
-		if(mysqli_affected_rows($dbh2)>0){
-			while ($rowL = mysqli_fetch_array($result)) {
-				if ($catDescuento[$rowL['categoria_id']]) {
-					$catMonto[$rowL['categoria_id']]*=$rowL['coheficiente'];
+		if ($dias >= 14) {
+			$laSQL = "SELECT * FROM  categoria_coheficiente where dia like '%+%'";
+			/*$laSQL = "SELECT DISTINCT c.*
+			  FROM categoria_coheficiente c
+			  INNER JOIN categoria_coheficiente_periodos cp
+				  ON cp.categoria_coheficiente_id = c.id
+				  AND (
+					  cp.desde BETWEEN '$desde' AND '$hasta'
+					  OR cp.hasta BETWEEN '$desde' AND '$hasta'
+					  OR '$desde' BETWEEN cp.desde AND cp.hasta
+					  OR '$hasta' BETWEEN cp.desde AND cp.hasta
+				  )
+			  WHERE dia like '%+%'";*/
+			//echo $laSQL."<br>";
+			fputs($_Log, date('Y-m-d G:i:s') . $laSQL . "\n");
+			$result = mysqli_query($dbh2, $laSQL);
+			if (mysqli_affected_rows($dbh2) > 0) {
+				while ($rowL = mysqli_fetch_array($result)) {
+					if ($catDescuento[$rowL['categoria_id']]) {
+						$catMonto[$rowL['categoria_id']] *= $rowL['coheficiente'];
+					}
+					//$catMonto[$rowL['categoria_id']]+=$catMonto[$rowL['categoria_id']]*$hora_adicional;
 				}
-				//$catMonto[$rowL['categoria_id']]+=$catMonto[$rowL['categoria_id']]*$hora_adicional;
 			}
 		}
 	}
